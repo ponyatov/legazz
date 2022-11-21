@@ -1,0 +1,65 @@
+{
+    "name": "legas",
+    "scopeName": "script.legas",
+    "fileTypes": [ "ini", "s" ],
+    "patterns": [
+        { "include": "#comment"   },
+        { "include": "#def"       },
+        { "include": "#label"     },
+        { "include": "#command"   },
+        { "include": "#shell"     },
+        { "include": "#string"    },
+        { "include": "#operator"  },
+        { "include": "#directive" }
+    ],
+    "repository": {
+        "comment": { "patterns": [
+                {
+                    "comment": "pythonic/shell line comment",
+                    "match": "(#.*$)",
+                    "name": "comment.line.number-sign"
+                } ] },
+        "def": { "patterns": [
+                {
+                    "comment": "colon definition",
+                    "match": "(: +[a-zA-Z_]+$)",
+                    "name": "entity.name.function"
+                } ] },
+        "label": { "patterns": [
+                {
+                    "comment": "jmp/call label",
+                    "match": "(@[a-zA-Z_]+$)",
+                    "name": "entity.name.tag"
+                } ] },
+        "command": { "patterns": [
+                {
+                    "comment": "VM command",
+                    "match": "(nop)",
+                    "name": "keyword.control"
+                } ] },
+        "shell": { "patterns": [
+                {
+                    "comment": "shell/file commands",
+                    "match": "(mkdir|touch|echo|ln)",
+                    "name": "keyword.directive"
+                } ] },
+        "string": { "patterns": [
+                {
+                    "comment": "string",
+                    "match": "'.*'",
+                    "name": "string"
+                } ] },
+        "operator": { "patterns": [
+                { "match": "(>>)", "name": "keyword.operator.rshift" },
+                { "match": "(/)",  "name": "keyword.operator.div"    }
+                ] },
+        "directive": { "patterns": [
+                {
+                    "comment": "directive",
+                    "match": "([.](end))",
+                    "name": "keyword.directive"
+                }
+            ]
+        }
+    }
+}

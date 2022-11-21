@@ -1,0 +1,55 @@
+{
+    "name": "legas",
+    "displayName": "legacy analysis",
+    "version": "0.0.1",
+    "publisher": "dponyatov",
+    "author": {
+        "name":  "Dmitry Ponyatov",
+        "email": "dponyatov@gmail.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ponyatov/legas/tree/dev/.vscode"
+    },
+    "homepage": "https://github.com/ponyatov/legas",
+    "icon": "logo.png",
+    "categories": [
+        "Programming Languages",
+        "Debuggers",
+        "Notebooks",
+        "Snippets"
+    ],
+    "engines": {
+        "vscode": "^1.50.0"
+    },
+    "activationEvents": [
+        "onLanguage:legas"
+    ],
+    "main": "extension.js",
+    "contributes": {
+        "languages": [
+            {
+                "id": "legas",
+                "aliases": [],
+                "extensions": [
+                    ".ini",
+                    ".s"
+                ],
+                "configuration": "legas.configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "legas",
+                "scopeName": "script.legas",
+                "path": "legas.tmLanguage.json"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "legas",
+                "path": "snippets.json"
+            }
+        ]
+    }
+}
